@@ -4,7 +4,7 @@ const axios = require('axios');
 const bodyParser = require('body-parser');
 const { v4: uuidv4 } = require('uuid');
 
-const porta = process.env.PORT;
+const {PORT} = process.env;
 
 const app = express();
 app.use(bodyParser.json());
@@ -21,8 +21,8 @@ app.post('/lembretes/:id/observacoes', async (req, res) => {
     const obsLembreteEspecifico = obsLembretes[req.params.id] || [];
     obsLembreteEspecifico.push({ idObs: index_obs, texto, idLemb: req.params.id });
     obsLembretes[req.params.id] = obsLembreteEspecifico;
-    await axios.post('http://localhost:1000/eventos', {
-        tipo: 'LembreteCriado',
+    await axios.post("http://localhost:10000/eventos", {
+        tipo: 'ObservacaoCriada',
         dados:{
             idObs: index_obs,
             texto,
@@ -37,6 +37,6 @@ app.post('/eventos', (req, res) => {
     res.status(200).send({ msg: "ok" });
 });
 
-app.listen(porta, () => {
-    console.log(`PROJ_LEMBRETES. Porta ${porta}`);
+app.listen(PORT, () => {
+    console.log(`Observações. Porta ${PORT}`);
 });

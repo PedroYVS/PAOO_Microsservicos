@@ -1,0 +1,137 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Lemb/Obs/Cons",
+    "dateExported": "2023-10-25T13:11:12.480Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "8152d322-a884-448f-8017-2d5817517e53",
+            "colId": "0973593c-7576-4925-b459-b043880a3cf4",
+            "containerId": "",
+            "name": "Consulta Teste1",
+            "url": "localhost:6000/lembretes",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-25T13:10:25.627Z",
+            "modified": "2023-10-25T13:10:25.627Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "63ebac70-bce9-444e-85e3-5b0a6c995732",
+            "colId": "0973593c-7576-4925-b459-b043880a3cf4",
+            "containerId": "",
+            "name": "Obs2 teste2",
+            "url": "localhost:5000/lembretes/cb596112-04f8-4f6e-b3cf-a248b8954f8a/observacoes",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-10-25T13:10:32.121Z",
+            "modified": "2023-10-25T13:10:32.121Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"texto\": \"obs2 teste2\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "8380d460-98e7-4aec-8a87-8059532625b7",
+            "colId": "0973593c-7576-4925-b459-b043880a3cf4",
+            "containerId": "",
+            "name": "Obs2 teste1",
+            "url": "localhost:5000/lembretes/cb596112-04f8-4f6e-b3cf-a248b8954f8a/observacoes",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-10-25T13:10:38.143Z",
+            "modified": "2023-10-25T13:10:38.143Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"texto\": \"obs2 teste1\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "906fbf3b-ac38-4df6-8ced-691abc1c69b7",
+            "colId": "0973593c-7576-4925-b459-b043880a3cf4",
+            "containerId": "",
+            "name": "Obs teste2",
+            "url": "localhost:5000/lembretes/d186f24d-20d0-4bd9-b560-1b7fa9af86a6/observacoes",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-10-25T13:10:42.669Z",
+            "modified": "2023-10-25T13:10:42.669Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"texto\": \"obs teste2\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "00b5c2fa-6a33-410a-8488-3274bd3719da",
+            "colId": "0973593c-7576-4925-b459-b043880a3cf4",
+            "containerId": "",
+            "name": "Obs teste1",
+            "url": "localhost:5000/lembretes/d186f24d-20d0-4bd9-b560-1b7fa9af86a6/observacoes",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-10-25T13:10:54.071Z",
+            "modified": "2023-10-25T13:10:54.071Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"texto\": \"obs teste1\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "68f97b00-ddd9-4db0-9762-39fe176e88b4",
+            "colId": "0973593c-7576-4925-b459-b043880a3cf4",
+            "containerId": "",
+            "name": "Teste2",
+            "url": "localhost:4000/lembretes",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-10-25T13:10:58.899Z",
+            "modified": "2023-10-25T13:10:58.899Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"texto\": \"teste2\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "23113580-7c9c-4f09-b23b-a4c0a2454545",
+            "colId": "0973593c-7576-4925-b459-b043880a3cf4",
+            "containerId": "",
+            "name": "Teste1",
+            "url": "localhost:4000/lembretes",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-10-25T13:11:04.283Z",
+            "modified": "2023-10-25T13:11:04.283Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"texto\": \"teste1\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
