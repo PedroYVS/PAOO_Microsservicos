@@ -38,7 +38,5 @@ app.post('/eventos', (req, res) => {
     res.status(200).send({ msg: "ok" });
 });
 
-app.listen(PORT, () => {
-    console.log(`Lembretes. Porta ${PORT}`);
-});
+app.listen(PORT, () => console.log(`Lembretes. Porta ${PORT}`));
 

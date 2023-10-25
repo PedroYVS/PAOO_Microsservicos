@@ -15,8 +15,13 @@ const funcoes = {
         const observacoes = baseConsulta[obs.idLemb]["observacoes"] || [];
         observacoes.push(obs);
         baseConsulta[obs.idLemb]["observacoes"] = observacoes;
-    }
-}
+    },
+    ObservacaoAtualizada: (obs) => {
+        const observacoes = baseConsulta[obs.idLemb]["observacoes"];
+        const obs_index = observacoes.findIndex(ob => ob.idLemb === obs.idLemb);
+        observacoes[obs_index] = obs;
+    },
+};
 
 app.use(express.json());
 
