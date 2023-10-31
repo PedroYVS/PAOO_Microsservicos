@@ -28,7 +28,7 @@ app.post('/lembretes/:id/observacoes', async (req, res) => {
     const index_obs = uuidv4();
     const { texto } = req.body;
     const obsLembreteEspecifico = obsLembretes[req.params.id] || [];
-    const statusInicial = "indefinido";
+    const statusInicial = "Indefinido";
     obsLembreteEspecifico.push({ idObs: index_obs, texto, idLemb: req.params.id, status: statusInicial });
     obsLembretes[req.params.id] = obsLembreteEspecifico;
     await axios.post("http://localhost:10000/eventos", {
@@ -44,7 +44,10 @@ app.post('/lembretes/:id/observacoes', async (req, res) => {
 });
 
 app.post('/eventos', (req, res) => {
-    funcoes[req.body.tipo](req.body.dados);
+    try{
+        funcoes[req.body.tipo](req.body.dados);
+    }
+    catch(err){}
     res.status(200).send({ msg: "ok" });
 });
 

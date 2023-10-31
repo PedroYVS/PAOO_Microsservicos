@@ -12,9 +12,9 @@ app.use(bodyParser.json());
 
 const { PORT } = process.env;
 
-app.get('/lembretes', (req, res) => {
-    res.send(lembretes);
-});
+app.get('/lembretes', (req, res) => { res.send(lembretes) });
+
+app.get('/lembretes/:id', (req, res) => { res.send(lembretes[req.params.id] || []) });
 
 app.post('/lembretes', async (req, res) => {
     const index_lemb = uuidv4();

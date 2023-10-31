@@ -30,8 +30,20 @@ app.get("/consulta_geral", (req, res) => {
 });
 
 app.post("/eventos", (req, res) => {
-    funcoes[req.body.tipo](req.body.dados);
+    try{
+        funcoes[req.body.tipo](req.body.dados);
+    }
+    catch(err){}
     res.status(200).send(baseConsulta);
 });
 
-app.listen(PORT, () => console.log(`Consultas. Porta ${PORT}`));
+app.listen(PORT, async () => {
+    console.log(`Consultas. Porta ${PORT}`)
+    const verificando_eventos = await axios.get("http://localhost:10000/eventos");
+    verificando_eventos.data.forEach((evento) => {
+        try{
+            funcoes[evento.tipo](evento.dados);
+        }
+        catch(err){}
+    });
+});

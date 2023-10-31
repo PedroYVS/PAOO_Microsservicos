@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const axios = require('axios');
 
 const app = express();
 
@@ -18,8 +19,20 @@ const funcoes = {
 }
 
 app.post('/evento', (req, res) => {
-    funcoes[req.body.tipo](req.body.dados);
+    try{
+        funcoes[req.body.tipo](req.body.dados);
+    }
+    catch(err){}
     res.status(200).send({ msg: "ok" });
 });
 
-app.listen(PORT, () => console.log(`Classificação. Porta ${PORT}`));
+app.listen(PORT, async () => {
+    console.log(`Classificação. Porta ${PORT}`)
+    const verificando_eventos = await axios.get("http://localhost:10000/eventos");
+    verificando_eventos.data.forEach((evento) => {
+        try{
+            funcoes[evento.tipo](evento.dados);
+        }
+        catch(err){}
+    });
+});
