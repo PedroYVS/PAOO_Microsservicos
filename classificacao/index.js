@@ -18,7 +18,7 @@ const funcoes = {
     },
 }
 
-app.post('/evento', (req, res) => {
+app.post('/eventos', (req, res) => {
     try{
         funcoes[req.body.tipo](req.body.dados);
     }

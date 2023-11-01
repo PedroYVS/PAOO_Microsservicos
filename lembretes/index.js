@@ -29,7 +29,6 @@ app.post('/lembretes', async (req, res) => {
             texto,
         },
     });
-    //A linha de código abaixo serve para retornar uma mensagem de confirmação. A parte "send" em especial retorna o objeto recém-criado.
     res.status(201).send(lembretes[index_lemb]);
 });
 
