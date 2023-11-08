@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({ path: "C:/Users/aluno/Desktop/paoo/.env" });
 const axios = require('axios');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -10,7 +10,7 @@ const lembretes = {};
 
 app.use(bodyParser.json());
 
-const { PORT } = process.env;
+const { PORT_LEMBRETES, PORT_BARRAMENTO_DE_EVENTOS } = process.env;
 
 app.get('/lembretes', (req, res) => { res.send(lembretes) });
 
@@ -22,7 +22,7 @@ app.post('/lembretes', async (req, res) => {
     lembretes[index_lemb] = {
         index_lemb, texto
     }
-    await axios.post("http://localhost:10000/eventos", {
+    await axios.post(`http://localhost:${PORT_BARRAMENTO_DE_EVENTOS}/eventos`, {
         tipo: 'LembreteCriado',
         dados:{
             index_lemb,
@@ -37,5 +37,5 @@ app.post('/eventos', (req, res) => {
     res.status(200).send({ msg: "ok" });
 });
 
-app.listen(PORT, () => console.log(`Lembretes. Porta ${PORT}`));
+app.listen(PORT_LEMBRETES, () => console.log(`Lembretes. Porta ${PORT_LEMBRETES}`));
 

@@ -1,10 +1,10 @@
-require('dotenv').config();
+require('dotenv').config({ path: "C:/Users/aluno/Desktop/paoo/.env" });
 const express = require('express');
 const axios = require('axios');
 
 const app = express();
 
-const { PORT } = process.env;
+const { PORT_CONSULTA, PORT_BARRAMENTO_DE_EVENTOS } = process.env;
 
 const baseConsulta = {};
 
@@ -31,20 +31,16 @@ app.get("/consulta_geral", (req, res) => {
 });
 
 app.post("/eventos", (req, res) => {
-    try{
-        funcoes[req.body.tipo](req.body.dados);
-    }
+    try{ funcoes[req.body.tipo](req.body.dados); }
     catch(err){}
     res.status(200).send(baseConsulta);
 });
 
-app.listen(PORT, async () => {
-    console.log(`Consultas. Porta ${PORT}`)
-    const verificando_eventos = await axios.get("http://localhost:10000/eventos");
+app.listen(PORT_CONSULTA, async () => {
+    console.log(`Consultas. Porta ${PORT_CONSULTA}`)
+    const verificando_eventos = await axios.get(`http://localhost:${PORT_BARRAMENTO_DE_EVENTOS}/eventos`);
     verificando_eventos.data.forEach((evento) => {
-        try{
-            funcoes[evento.tipo](evento.dados);
-        }
+        try{ funcoes[evento.tipo](evento.dados); }
         catch(err){}
     });
 });
